@@ -6,6 +6,8 @@ data:
   AWS_REGION: us-east-1
   JWT_TOKEN: hello
   POSTGRES_DATABASE: postgres
+  POSTGRES_USERNAME: postgres
+  POSTGRES_PASSWORD: mennamenna
   POSTGRES_HOST: postgres.ckebdgekfgig.us-east-1.rds.amazonaws.com
   URL: http://localhost:8100
 metadata:

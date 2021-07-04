@@ -37,6 +37,6 @@ services:
       JWT_TOKEN: $JWT_TOKEN
       URL: "http://localhost:8100"
   frontend:
-    image: mennaatef/udagram-frontend:local
+    image: mennaatef/udagram-frontend
     ports:
       - "8100:80"

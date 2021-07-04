@@ -1,23 +1,10 @@
-# Use NodeJS base image
-FROM node:13
+FROM node:12
 
-# Create app directory in Docker
-RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
-# Install app dependencies by copying
-# package.json and package-lock.json
 COPY package*.json ./
+RUN npm ci
 
-# Install dependencies in Docker
-RUN npm install
-
-# Copy app from local environment into the Docker image
 COPY . .
-
-# Set the API’s port number
 EXPOSE 8080
-
-# Define Docker’s behavior when the image is run
-CMD ["node", "server.js"]
-CMD ["sh", "-c", "tail -f /dev/null"]
+CMD [ "npm", "run", "prod" ]

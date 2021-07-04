@@ -15,4 +15,4 @@ services:
   frontend:
     build:
       context: ../../udagram-frontend  
-    image: mennaatef/udagram-frontend:local
+    image: mennaatef/udagram-frontend
