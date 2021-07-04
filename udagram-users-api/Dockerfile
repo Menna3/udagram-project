@@ -2,6 +2,7 @@
 FROM node:13
 
 # Create app directory in Docker
+RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 # Install app dependencies by copying
@@ -19,3 +20,4 @@ EXPOSE 8080
 
 # Define Docker’s behavior when the image is run
 CMD ["node", "server.js"]
+CMD ["sh", "-c", "tail -f /dev/null"]
