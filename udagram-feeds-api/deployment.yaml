@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: udagram-feeds-api
+  labels:
+    app: udagram-feeds-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: udagram-feeds-api
+  template:
+    metadata:
+      labels:
+        app: udagram-feeds-api
+    spec:
+      containers:
+      - name: udagram-feeds-api
+        image: mennaatef/udagram-feeds-api
+        command: [ "/bin/bash", "-c", "--" ]
+        args: [ "while true; do sleep 30; done;" ]
+        ports:
+        - containerPort: 80
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 3
+          periodSeconds: 3
